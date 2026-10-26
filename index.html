@@ -710,11 +710,1751 @@
         <span class="search-icon">🔍</span>
         <input type="text" id="searchInput" placeholder="Filtrar por nome, URL, login, descrição..." oninput="filterBookmarks()">
       </div>
-      <div class="category-pills" id="categoryPills"><button class="pill ">Todas</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">IPTV</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">SMART TV</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Compras</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Trocadores</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Trocadores Liquid</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">PIX</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Links de Pagamento</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Loterias</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Mercado</button><button class="pill active" draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Utilitários</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Comunicação</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Fechamento</button></div>
+      <div class="category-pills" id="categoryPills"><button class="pill active">Todas</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">IPTV</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">SMART TV</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Compras</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Trocadores</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Trocadores Liquid</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">PIX</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Links de Pagamento</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Loterias</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Mercado</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Utilitários</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Comunicação</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Fechamento</button></div>
     </div>
 
     <!-- Área de Exibição dos Favoritos -->
     <main id="bookmarksContainer" style="display: flex; flex-direction: column; gap: 16px;"><div class="category-section"><div class="category-title">
+          <span>📁 IPTV</span> 
+          <span style="font-size: 10px; color: #64748b;">(9)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('IPTV')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://43564128484.painelgerenciador.me/login" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>MOVE</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786100902')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786100902')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://43564128484.painelgerenciador.me/login
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://3rewfds2qw.p2server.me/login" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>P2SERVER</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786119534')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786119534')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://3rewfds2qw.p2server.me/login
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://gestor.rs/index.asp" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>BLADE</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786136686')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786136686')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+                <div class="cred-row" onclick="event.stopPropagation();">
+                  <span class="cred-label">Login:</span>
+                  <span class="cred-value" title="zGFFAbQ8pmB">zGFFAbQ8pmB</span>
+                  <div class="cred-actions">
+                    <button class="btn-cred-mini" onclick="copyToClipboard('zGFFAbQ8pmB', this)" title="Copiar Usuário">📋</button>
+                  </div>
+                </div>
+              
+
+              
+                <div class="cred-row" onclick="event.stopPropagation();">
+                  <span class="cred-label">Senha:</span>
+                  <span class="cred-value" id="pass_1792786136686" data-real="vHDbqzB0PCB" data-hidden="true">••••••••</span>
+                  <div class="cred-actions">
+                    <button class="btn-cred-mini" onclick="toggleMask('pass_1792786136686')" title="Mostrar/Ocultar Senha">👁️</button>
+                    <button class="btn-cred-mini" onclick="copyToClipboard('vHDbqzB0PCB', this)" title="Copiar Senha">📋</button>
+                  </div>
+                </div>
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://gestor.rs/index.asp
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://vendedorhibridy.com/login/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>PRIME</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786149934')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786149934')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://vendedorhibridy.com/login/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://painelcliente.com/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>CORE</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786166823')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786166823')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://painelcliente.com/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://painel.digitalplus.top/login/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>DIGITAL+</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786182669')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786182669')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://painel.digitalplus.top/login/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://revenda-eliteiptv.online/#/sign-in?redirect=/dashboard" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>ELITE</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786196861')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786196861')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://revenda-eliteiptv.online/#/sign-in?redirect=/dashboard
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://controle.vip/lock?redirect=%252Fdashboard" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>FIVE</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786215629')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786215629')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://controle.vip/lock?redirect=%2Fdashboard
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://paineltopmusic.com/admin/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Top Music</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792961643035')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792961643035')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+                <div class="cred-row" onclick="event.stopPropagation();">
+                  <span class="cred-label">Login:</span>
+                  <span class="cred-value" title="Ktde3vxj57sa6kuk3266">Ktde3vxj57sa6kuk3266</span>
+                  <div class="cred-actions">
+                    <button class="btn-cred-mini" onclick="copyToClipboard('Ktde3vxj57sa6kuk3266', this)" title="Copiar Usuário">📋</button>
+                  </div>
+                </div>
+              
+
+              
+                <div class="cred-row" onclick="event.stopPropagation();">
+                  <span class="cred-label">Senha:</span>
+                  <span class="cred-value" id="pass_1792961643035" data-real="VJVW8lB7mmQt8VzP" data-hidden="true">••••••••</span>
+                  <div class="cred-actions">
+                    <button class="btn-cred-mini" onclick="toggleMask('pass_1792961643035')" title="Mostrar/Ocultar Senha">👁️</button>
+                    <button class="btn-cred-mini" onclick="copyToClipboard('VJVW8lB7mmQt8VzP', this)" title="Copiar Senha">📋</button>
+                  </div>
+                </div>
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">IPTV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://paineltopmusic.com/admin/
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 SMART TV</span> 
+          <span style="font-size: 10px; color: #64748b;">(5)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('SMART TV')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://smartone-iptv.com/plugin/smart_one/client_main/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>SMARTONE IPTV</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786238613')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786238613')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">SMART TV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://smartone-iptv.com/plugin/smart_one/client_main/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://reseller.dreamtv.life/#/login" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>DREAM TV</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786257469')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786257469')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">SMART TV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://reseller.dreamtv.life/#/login
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://duplecast.com/client/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>DUPLECAST</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786278452')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786278452')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">SMART TV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://duplecast.com/client/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://ss-iptv.com/en/users/playlist" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>SS IPTV</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786297260')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786297260')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">SMART TV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://ss-iptv.com/en/users/playlist
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://siptv.app/mylist/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>SMART IPTV</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786315460')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786315460')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">SMART TV</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://siptv.app/mylist/
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 Compras</span> 
+          <span style="font-size: 10px; color: #64748b;">(8)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Compras')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.amazon.com.br/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Amazon</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786487850')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786487850')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Compras</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.amazon.com.br/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.mercadolivre.com.br/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Mercado Livre</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786510010')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786510010')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Compras</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.mercadolivre.com.br/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://shopee.com.br/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Shopee</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786528498')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786528498')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Compras</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://shopee.com.br/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://pt.aliexpress.com/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Aliexpress</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792786549002')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792786549002')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Compras</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://pt.aliexpress.com/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.olx.com.br/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>OLX</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792881852251')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792881852251')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Compras</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.olx.com.br/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.sofirnlight.com/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Sofirn</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792885007510')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792885007510')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Compras</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.sofirnlight.com/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://wubenlight.com.br/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Wuben</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792885075853')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792885075853')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Compras</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://wubenlight.com.br/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.lumienergy.com.br/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Lumienergy</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792885146028')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792885146028')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Compras</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.lumienergy.com.br/
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 Trocadores</span> 
+          <span style="font-size: 10px; color: #64748b;">(5)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Trocadores')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://trocador.app/pt/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Trocador</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792788318601')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792788318601')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Trocadores</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://trocador.app/pt/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://swapspace.co/pt" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Swapspace</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792789499030')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792789499030')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Trocadores</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://swapspace.co/pt
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://sideshift.ai/pt-BR" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Sideshift</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792788381313')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792788381313')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Trocadores</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://sideshift.ai/pt-BR
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.trueshift.app/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Trueshift</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792788405536')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792788405536')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Trocadores</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.trueshift.app/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://depixswap.com/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Depixswap</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792789268529')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792789268529')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Trocadores</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://depixswap.com/
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 Trocadores Liquid</span> 
+          <span style="font-size: 10px; color: #64748b;">(3)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Trocadores Liquid')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://brswap.me/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>BR Swap</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792788692486')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792788692486')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Trocadores Liquid</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://brswap.me/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://sideshift.ai/pt-BR" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Sideshift</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792789348856')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792789348856')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Trocadores Liquid</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://sideshift.ai/pt-BR
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://depixswap.com/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Depixswap</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792789301384')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792789301384')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Trocadores Liquid</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://depixswap.com/
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 PIX</span> 
+          <span style="font-size: 10px; color: #64748b;">(4)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('PIX')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://depixswap.com/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Depixswap</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792790714635')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792790714635')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">PIX</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://depixswap.com/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://uspix.vc/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>USPIX</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792790105409')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792790105409')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">PIX</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://uspix.vc/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://crypix.me/auth/login.php" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>CryPix</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792790132240')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792790132240')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">PIX</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://crypix.me/auth/login.php
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://depix.online/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Depix Online</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792976215407')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792976215407')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="bookmark-desc">Compra de Depix</div>
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">PIX</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://depix.online/
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 Links de Pagamento</span> 
+          <span style="font-size: 10px; color: #64748b;">(2)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Links de Pagamento')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://deflow.exchange/pt/home" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Deflow</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792881450127')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792881450127')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Links de Pagamento</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://deflow.exchange/pt/home
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://pixgo.org/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>PixGo</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792881537599')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792881537599')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Links de Pagamento</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://pixgo.org/
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 Loterias</span> 
+          <span style="font-size: 10px; color: #64748b;">(2)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Loterias')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://confiraloterias.com.br/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Loterias Caixa Conferência</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792808711690')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792808711690')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Loterias</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://confiraloterias.com.br/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.loteriasonline.caixa.gov.br/silce-web/#/home" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Loterias Caixa Aposta</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792808739713')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792808739713')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Loterias</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.loteriasonline.caixa.gov.br/silce-web/#/home
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 Mercado</span> 
+          <span style="font-size: 10px; color: #64748b;">(5)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Mercado')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://docs.google.com/spreadsheets/d/1mh4fkaBwpKGWmyxagAC6A7woGwHUKiA1Isil21AcKKU/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Lista de Compras</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792831306229')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792831306229')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Mercado</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://docs.google.com/spreadsheets/d/1mh4fkaBwpKGWmyxagAC6A7woGwHUKiA1Isil21AcKKU/edit?gid=0#gid=0
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://seusfolhetos.com.br/buscar?f=campinas" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Folhetos</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792831122408')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792831122408')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Mercado</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://seusfolhetos.com.br/buscar?f=campinas
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.dia.com.br/lojas/sp-campinas-campinas-vl.-sao-jorge-275" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Dia</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792831166231')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792831166231')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Mercado</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.dia.com.br/lojas/sp-campinas-campinas-vl.-sao-jorge-275
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://imagens.savegnagoonline.com.br/jornal-semanal-app/Campinas.pdf" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Savegnago</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792831205198')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792831205198')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Mercado</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://imagens.savegnagoonline.com.br/jornal-semanal-app/Campinas.pdf
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.superpaguemenos.com.br/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Paguemenos</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792831258622')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792831258622')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Mercado</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.superpaguemenos.com.br/
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
           <span>📁 Utilitários</span> 
           <span style="font-size: 10px; color: #64748b;">(5)</span>
           <button class="btn-edit-cat" onclick="renameCategory('Utilitários')" title="Renomear esta categoria">
@@ -912,6 +2652,478 @@
                 </span>
               
             </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 Comunicação</span> 
+          <span style="font-size: 10px; color: #64748b;">(6)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Comunicação')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Whatsapp</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792881032371')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792881032371')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Comunicação</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://web.whatsapp.com/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>GMail</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792881362824')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792881362824')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Comunicação</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://mail.google.com/mail/u/0/#inbox
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://mail.yahoo.com/n/folders/00_1?reason=invalid_cred" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Yahoo</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792881386007')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792881386007')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Comunicação</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://mail.yahoo.com/n/folders/00_1?reason=invalid_cred
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://calendar.google.com/calendar/u/0/r/week" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Agenda Google</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792881407666')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792881407666')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Comunicação</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://calendar.google.com/calendar/u/0/r/week
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Facebook</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792884480147')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792884480147')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Comunicação</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.facebook.com/
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.instagram.com/?hl=pt-br" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Instagram</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792884515899')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792884515899')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Comunicação</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.instagram.com/?hl=pt-br
+                </span>
+              
+            </div>
+          </div></div></div><div class="category-section"><div class="category-title">
+          <span>📁 Fechamento</span> 
+          <span style="font-size: 10px; color: #64748b;">(6)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Fechamento')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://pt.bullion-rates.com/gold/BRL/spot-price.htm" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Ouro</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792887960794')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792887960794')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Fechamento</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://pt.bullion-rates.com/gold/BRL/spot-price.htm
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.argentumhedge.com/barras-de-prata" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Prata</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792888007433')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792888007433')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Fechamento</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.argentumhedge.com/barras-de-prata
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.argentumhedge.com/barras-de-prata" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Argentum Hedge</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792888076496')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792888076496')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Fechamento</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.argentumhedge.com/barras-de-prata
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://worldsilver.com.br/moedas-de-prata/moedas-de-1-oz" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Worldsilver - Moedas de Prata</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792888151591')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792888151591')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Fechamento</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://worldsilver.com.br/moedas-de-prata/moedas-de-1-oz
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://worldsilver.com.br/barras-de-prata/barras-de-1-oz" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Worldsilver - Barras de Prata</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792888207776')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792888207776')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Fechamento</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://worldsilver.com.br/barras-de-prata/barras-de-1-oz
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://worldsilver.com.br/rounds-de-cobre?sort=p.price&amp;order=ASC" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Worldsilver - Moedas de Cobre</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792888272879')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792888272879')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Fechamento</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://worldsilver.com.br/rounds-de-cobre?sort=p.price&amp;order=ASC
+                </span>
+              
+            </div>
           </div></div></div></main>
 
     <!-- Rodapé -->
@@ -927,7 +3139,7 @@
     // PAYLOAD CRIPTOGRAFADO EMBUTIDO (QUANDO BLINDADO COM SENHA)
     // =========================================================================
     /* __ENCRYPTED_PAYLOAD_PLACEHOLDER__ */
-    let encryptedVaultPayload = "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";
+    let encryptedVaultPayload = "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";
 
     // =========================================================================
     // LISTA PADRÃO INICIAL (TODOS OS SEUS 60 LINKS INTEGRADOS)
@@ -1572,6 +3784,7 @@
 
     window.onload = initApp;
   </script>
+
 
 
 
