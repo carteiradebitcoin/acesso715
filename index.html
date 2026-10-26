@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberBookmarks - Central de Favoritos &amp; Cofre</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #07090e;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    /* Tela de Bloqueio com Senha Mestra */
+    .lock-screen {
+      position: fixed;
+      inset: 0;
+      background-color: #07090e;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .lock-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .lock-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #06b6d4, #2563eb);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+    }
+
+    .lock-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #ffffff;
+      fill: none;
+    }
+
+    .lock-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .lock-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    .input-lock {
+      width: 100%;
+      background-color: #0b0f19;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      color: #38bdf8;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 13px;
+      padding: 10px 14px;
+      outline: none;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .input-lock:focus {
+      border-color: #06b6d4;
+    }
+
+    .lock-error {
+      font-size: 11px;
+      color: #f87171;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      min-height: 16px;
+    }
+
+    /* Header */
+    .header-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #06b6d4, #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+    }
+
+    .brand-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #ffffff;
+      fill: none;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-tag {
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background-color: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      color: #38bdf8;
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Botões */
+    .btn {
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: #1e293b;
+      border-color: #334155;
+      color: #cbd5e1;
+    }
+
+    .btn-secondary:hover {
+      background-color: #334155;
+      color: #ffffff;
+    }
+
+    .btn-primary {
+      background-color: #0284c7;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: #0369a1;
+    }
+
+    .btn-emerald {
+      background-color: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #34d399;
+    }
+
+    .btn-emerald:hover {
+      background-color: #10b981;
+      color: #ffffff;
+    }
+
+    .btn-danger {
+      background-color: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.35);
+      color: #f87171;
+    }
+
+    .btn-danger:hover {
+      background-color: #ef4444;
+      color: #ffffff;
+    }
+
+    /* Barra de Busca e Filtros */
+    .controls-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      background-color: #0b0f19;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      color: #f1f5f9;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 12px;
+      padding: 7px 10px 7px 30px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: #06b6d4;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-size: 12px;
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      max-width: 100%;
+      padding-bottom: 2px;
+    }
+
+    .pill {
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background-color: #0b0f19;
+      border: 1px solid #1e293b;
+      color: #94a3b8;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .pill[draggable="true"] {
+      cursor: grab;
+    }
+
+    .pill[draggable="true"]:active {
+      cursor: grabbing;
+    }
+
+    .pill:hover {
+      color: #f1f5f9;
+      border-color: #334155;
+    }
+
+    .pill.active {
+      background-color: rgba(6, 182, 212, 0.15);
+      border-color: #06b6d4;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    /* Formulário de Adição e Edição com Usuário e Senha */
+    .form-panel {
+      display: none;
+      background-color: #111726;
+      border: 1px solid #06b6d4;
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.15);
+    }
+
+    .form-header {
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .form-group input {
+      width: 100%;
+      background-color: #0b0f19;
+      border: 1px solid #1e293b;
+      border-radius: 6px;
+      color: #38bdf8;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 12px;
+      padding: 6px 10px;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: #06b6d4;
+    }
+
+    /* Grid de Favoritos */
+    .category-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .category-title {
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #06b6d4;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-left: 2px;
+    }
+
+    .category-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: #1e293b;
+      margin-left: 6px;
+    }
+
+    .btn-edit-cat {
+      background: transparent;
+      border: none;
+      color: #475569;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .btn-edit-cat:hover {
+      background-color: #1e293b;
+      color: #38bdf8;
+    }
+
+    .bookmarks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 10px;
+    }
+
+    .bookmark-card {
+      background-color: #111726;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+      transition: all 0.2s ease;
+      position: relative;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .bookmark-card:active {
+      cursor: grabbing;
+    }
+
+    .bookmark-card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .bookmark-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .bookmark-title-link {
+      color: #f1f5f9;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      word-break: break-word;
+    }
+
+    .bookmark-title-link:hover {
+      color: #38bdf8;
+    }
+
+    .bookmark-desc {
+      font-size: 11px;
+      color: #94a3b8;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    /* Linhas de Credenciais Integradas */
+    .cred-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0b0f19;
+      border: 1px solid #1a273b;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .cred-label {
+      color: #64748b;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-right: 6px;
+    }
+
+    .cred-value {
+      color: #38bdf8;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .cred-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 6px;
+    }
+
+    .btn-cred-mini {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      cursor: pointer;
+      padding: 2px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .btn-cred-mini:hover {
+      color: #38bdf8;
+    }
+
+    .bookmark-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+      padding-top: 6px;
+      border-top: 1px solid #162032;
+    }
+
+    .bookmark-cat {
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 9px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background-color: #0b0f19;
+      border: 1px solid #1e293b;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      cursor: pointer;
+      padding: 3px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+
+    .btn-icon:hover {
+      background-color: #1e293b;
+      color: #f1f5f9;
+    }
+
+    .btn-icon.edit:hover {
+      color: #38bdf8;
+    }
+
+    .btn-icon.delete:hover {
+      color: #f87171;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 10px;
+      color: #64748b;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #1e293b;
+      padding-top: 10px;
+      font-size: 11px;
+      color: #64748b;
+      font-family: Consolas, "JetBrains Mono", monospace;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tela de Desbloqueio (Exibida se houver senha mestra configurada) -->
+  <div id="lockScreen" class="lock-screen" style="display: none;">
+    <div class="lock-card">
+      <div class="lock-icon">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></rect>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <div>
+        <h2 class="lock-title">CyberBookmarks Protegido</h2>
+        <p class="lock-desc">Digite sua Senha Mestra para decifrar e acessar seus favoritos e senhas</p>
+      </div>
+      <input type="password" id="masterPasswordInput" placeholder="Senha Mestra..." class="input-lock" onkeydown="if(event.key==='Enter') unlockVault()">
+      <div id="lockError" class="lock-error"></div>
+      <button class="btn btn-primary" onclick="unlockVault()" style="width: 100%; justify-content: center; padding: 10px;">
+        🔓 Desbloquear Acesso
+      </button>
+    </div>
+  </div>
+
+  <div class="container" id="mainContainer">
+    
+    <!-- Top Bar -->
+    <header class="header-card">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></rect>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <div class="brand-title">
+          CyberBookmarks <span class="badge-tag">Vault &amp; Senhas</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="openCreateForm()">
+          ➕ <span>Novo Favorito</span>
+        </button>
+        <button class="btn btn-emerald" onclick="downloadEncryptedHtml()" title="Criptografa com sua Senha Mestra e guarda o arquivo HTML protegido">
+          💾 <span>Guardar HTML</span>
+        </button>
+        <button class="btn btn-secondary" onclick="lockVault()" title="Trancar imediatamente a tela">
+          🔒 <span>Trancar</span>
+        </button>
+        <button class="btn btn-danger" onclick="clearAllData()" title="Limpa todos os favoritos e categorias">
+          🗑️ <span>Zerar Tudo</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Formulário de Criação / Edição -->
+    <div id="formPanel" class="form-panel" style="display: none;">
+      <div class="form-header" id="formHeaderTitle"><span>✏️ Editar Favorito</span></div>
+      <input type="hidden" id="editBookmarkId" value="">
+      
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="linkTitle">Título do Site / Serviço</label>
+          <input type="text" id="linkTitle" placeholder="Ex: Mempool Space">
+        </div>
+        <div class="form-group">
+          <label for="linkUrl">Endereço (URL ou Arquivo Local)</label>
+          <input type="text" id="linkUrl" placeholder="https://... ou .onion">
+        </div>
+        <div class="form-group">
+          <label for="linkUser">Usuário / Login (Opcional)</label>
+          <input type="text" id="linkUser" placeholder="Ex: admin / usuario">
+        </div>
+        <div class="form-group">
+          <label for="linkPass">Senha / Token (Opcional)</label>
+          <input type="text" id="linkPass" placeholder="Ex: Senha de acesso">
+        </div>
+        <div class="form-group">
+          <label for="linkCategory">Categoria</label>
+          <input type="text" id="linkCategory" placeholder="Ex: Cripto, IPTV, Mercado">
+        </div>
+        <div class="form-group">
+          <label for="linkDesc">Breve Descritivo</label>
+          <input type="text" id="linkDesc" placeholder="Ex: Notas ou observações">
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 8px;">
+        <button class="btn btn-secondary" onclick="closeForm()">Cancelar</button>
+        <button class="btn btn-primary" id="saveButton" onclick="saveBookmarkAction()">Atualizar Favorito</button>
+      </div>
+    </div>
+
+    <!-- Barra de Filtros e Busca -->
+    <div class="controls-card">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Filtrar por nome, URL, login, descrição..." oninput="filterBookmarks()">
+      </div>
+      <div class="category-pills" id="categoryPills"><button class="pill ">Todas</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">IPTV</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">SMART TV</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Compras</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Trocadores</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Trocadores Liquid</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">PIX</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Links de Pagamento</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Loterias</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Mercado</button><button class="pill active" draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Utilitários</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Comunicação</button><button class="pill " draggable="true" title="Clique para filtrar | Arraste para mover | Duplo clique para renomear">Fechamento</button></div>
+    </div>
+
+    <!-- Área de Exibição dos Favoritos -->
+    <main id="bookmarksContainer" style="display: flex; flex-direction: column; gap: 16px;"><div class="category-section"><div class="category-title">
+          <span>📁 Utilitários</span> 
+          <span style="font-size: 10px; color: #64748b;">(5)</span>
+          <button class="btn-edit-cat" onclick="renameCategory('Utilitários')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+          </button>
+        </div><div class="bookmarks-grid"><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://gemini.google.com/app?hl=pt-BR" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Gemini</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792874653879')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792874653879')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Utilitários</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://gemini.google.com/app?hl=pt-BR
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://account.proton.me/apps" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Proton</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792985237810')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792985237810')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Utilitários</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://account.proton.me/apps
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Mapas</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792876774931')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792876774931')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Utilitários</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.google.com/maps
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.ilovepdf.com/pt" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>PDF</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792876830954')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792876830954')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Utilitários</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.ilovepdf.com/pt
+                </span>
+              
+            </div>
+          </div><div class="bookmark-card" draggable="true">
+            <div>
+              <div class="bookmark-top">
+                
+                  <a href="https://www.iplocation.net/" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>Localiza IP</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('1792876889506')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('1792876889506')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">Utilitários</span>
+              
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  https://www.iplocation.net/
+                </span>
+              
+            </div>
+          </div></div></div></main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <span>Total: <strong id="totalCount" style="color: #38bdf8;">60</strong> links | Clique em 📋 para copiar credenciais</span>
+      <span>Criptografia AES-256-GCM • Zero-Knowledge</span>
+    </footer>
+
+  </div>
+
+  <script>
+    // =========================================================================
+    // PAYLOAD CRIPTOGRAFADO EMBUTIDO (QUANDO BLINDADO COM SENHA)
+    // =========================================================================
+    /* __ENCRYPTED_PAYLOAD_PLACEHOLDER__ */
+    let encryptedVaultPayload = "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";
+
+    // =========================================================================
+    // LISTA PADRÃO INICIAL (TODOS OS SEUS 60 LINKS INTEGRADOS)
+    // =========================================================================
+    /* __INITIAL_DATA_PLACEHOLDER__ */
+    let defaultBookmarks = [];
+
+    /* __INITIAL_CAT_ORDER_PLACEHOLDER__ */
+    let defaultCategoryOrder = [
+      "IPTV",
+      "SMART TV",
+      "Compras",
+      "Trocadores",
+      "Trocadores Liquid",
+      "PIX",
+      "Links de Pagamento",
+      "Loterias",
+      "Mercado",
+      "Utilitários",
+      "Comunicação",
+      "Fechamento"
+    ];
+
+    let currentSessionPassword = "";
+    let bookmarks = [];
+    let customCategoryOrder = [];
+    let currentCategoryFilter = 'ALL';
+
+    let draggedBookmarkId = null;
+    let draggedCategoryName = null;
+
+    // --- FUNÇÕES CRIPTOGRÁFICAS AES-256-GCM (Web Crypto API) ---
+    async function deriveKey(password, salt) {
+      const enc = new TextEncoder();
+      const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        enc.encode(password),
+        { name: "PBKDF2" },
+        false,
+        ["deriveKey"]
+      );
+      return crypto.subtle.deriveKey(
+        {
+          name: "PBKDF2",
+          salt: salt,
+          iterations: 100000,
+          hash: "SHA-256"
+        },
+        keyMaterial,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["encrypt", "decrypt"]
+      );
+    }
+
+    async function encryptData(plainText, password) {
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const key = await deriveKey(password, salt);
+      const encoded = new TextEncoder().encode(plainText);
+
+      const ciphertext = await crypto.subtle.encrypt(
+        { name: "AES-GCM", iv: iv },
+        key,
+        encoded
+      );
+
+      const combined = new Uint8Array(salt.byteLength + iv.byteLength + ciphertext.byteLength);
+      combined.set(salt, 0);
+      combined.set(iv, salt.byteLength);
+      combined.set(new Uint8Array(ciphertext), salt.byteLength + iv.byteLength);
+
+      return btoa(String.fromCharCode(...combined));
+    }
+
+    async function decryptData(base64Data, password) {
+      const binary = atob(base64Data);
+      const combined = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        combined[i] = binary.charCodeAt(i);
+      }
+
+      const salt = combined.slice(0, 16);
+      const iv = combined.slice(16, 28);
+      const ciphertext = combined.slice(28);
+
+      const key = await deriveKey(password, salt);
+
+      const decrypted = await crypto.subtle.decrypt(
+        { name: "AES-GCM", iv: iv },
+        key,
+        ciphertext
+      );
+
+      return new TextDecoder().decode(decrypted);
+    }
+
+    // --- INICIALIZAÇÃO E CONTROLE DE ACESSO ---
+    function initApp() {
+      const lockScreen = document.getElementById('lockScreen');
+      const passInput = document.getElementById('masterPasswordInput');
+
+      if (!encryptedVaultPayload || encryptedVaultPayload.trim() === "") {
+        // Primeiro uso: carrega os 60 links já embutidos
+        bookmarks = [...defaultBookmarks];
+        customCategoryOrder = [...defaultCategoryOrder];
+        render();
+      } else {
+        // Já protegido com senha: exige desbloqueio imediato
+        lockScreen.style.display = 'flex';
+        passInput.value = '';
+        passInput.focus();
+      }
+    }
+
+    async function unlockVault() {
+      const passInput = document.getElementById('masterPasswordInput');
+      const errEl = document.getElementById('lockError');
+      const pass = passInput.value;
+
+      if (!pass) {
+        errEl.textContent = "Digite a Senha Mestra.";
+        return;
+      }
+
+      try {
+        errEl.textContent = "Decifrando dados...";
+        const decryptedJson = await decryptData(encryptedVaultPayload, pass);
+        const data = JSON.parse(decryptedJson);
+
+        bookmarks = data.bookmarks || [];
+        customCategoryOrder = data.categories || defaultCategoryOrder;
+        currentSessionPassword = pass;
+
+        document.getElementById('lockScreen').style.display = 'none';
+        errEl.textContent = "";
+        render();
+      } catch (e) {
+        console.error(e);
+        errEl.textContent = "Senha incorreta ou cofre corrompido!";
+      }
+    }
+
+    function lockVault() {
+      currentSessionPassword = "";
+      bookmarks = [];
+      document.getElementById('bookmarksContainer').innerHTML = "";
+      document.getElementById('lockScreen').style.display = 'flex';
+      document.getElementById('masterPasswordInput').value = "";
+      document.getElementById('lockError').textContent = "";
+      document.getElementById('masterPasswordInput').focus();
+    }
+
+    // --- GUARDAR HTML COM CRIPTOGRAFIA AUTOMÁTICA ---
+    async function downloadEncryptedHtml() {
+      let pass = currentSessionPassword;
+
+      if (!pass) {
+        pass = prompt("Defina uma Senha Mestra para proteger este arquivo com todos os links e senhas:");
+        if (!pass || pass.trim().length < 6) {
+          alert("A senha mestra deve conter ao menos 6 caracteres.");
+          return;
+        }
+        const confirmPass = prompt("Confirme a Senha Mestra:");
+        if (pass !== confirmPass) {
+          alert("As senhas não coincidem. Operação cancelada.");
+          return;
+        }
+        currentSessionPassword = pass;
+      }
+
+      try {
+        const payloadJson = JSON.stringify({
+          bookmarks: bookmarks,
+          categories: customCategoryOrder
+        });
+
+        const cipherBase64 = await encryptData(payloadJson, currentSessionPassword);
+
+        let htmlContent = document.documentElement.outerHTML;
+
+        // Limpa a lista em texto puro no arquivo final salvo para blindagem absoluta
+        htmlContent = htmlContent.replace(/let encryptedVaultPayload = "[\s\S]*?";/, `let encryptedVaultPayload = "${cipherBase64}";`);
+        htmlContent = htmlContent.replace(/let defaultBookmarks = \[[\s\S]*?\];/, `let defaultBookmarks = [];`);
+
+        const blob = new Blob(["<!DOCTYPE html>\n<html lang=\"pt-BR\">\n" + htmlContent + "\n</html>"], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `CyberBookmarks.html`;
+        a.click();
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        console.error(err);
+        alert("Erro ao criptografar o arquivo.");
+      }
+    }
+
+    function clearAllData() {
+      if (!confirm("⚠️ Tem certeza que deseja apagar TODOS os favoritos, senhas e categorias?")) return;
+      if (!confirm("Esta ação limpará completamente a lista em memória. Deseja prosseguir?")) return;
+
+      bookmarks = [];
+      customCategoryOrder = [];
+      currentCategoryFilter = 'ALL';
+      render();
+    }
+
+    function openCreateForm() {
+      document.getElementById('editBookmarkId').value = '';
+      document.getElementById('linkTitle').value = '';
+      document.getElementById('linkUrl').value = '';
+      document.getElementById('linkUser').value = '';
+      document.getElementById('linkPass').value = '';
+      document.getElementById('linkCategory').value = '';
+      document.getElementById('linkDesc').value = '';
+
+      document.getElementById('formHeaderTitle').innerHTML = '<span>➕ Novo Favorito</span>';
+      document.getElementById('saveButton').textContent = 'Salvar Favorito';
+
+      const panel = document.getElementById('formPanel');
+      panel.style.display = 'block';
+      document.getElementById('linkTitle').focus();
+    }
+
+    function editBookmark(id) {
+      const item = bookmarks.find(b => b.id === id);
+      if (!item) return;
+
+      document.getElementById('editBookmarkId').value = item.id;
+      document.getElementById('linkTitle').value = item.title;
+      document.getElementById('linkUrl').value = item.url;
+      document.getElementById('linkUser').value = item.user || '';
+      document.getElementById('linkPass').value = item.pass || '';
+      document.getElementById('linkCategory').value = item.category || 'Geral';
+      document.getElementById('linkDesc').value = item.desc || '';
+
+      document.getElementById('formHeaderTitle').innerHTML = '<span>✏️ Editar Favorito</span>';
+      document.getElementById('saveButton').textContent = 'Atualizar Favorito';
+
+      const panel = document.getElementById('formPanel');
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('linkTitle').focus();
+    }
+
+    function closeForm() {
+      document.getElementById('formPanel').style.display = 'none';
+      document.getElementById('editBookmarkId').value = '';
+    }
+
+    function saveBookmarkAction() {
+      const editId = document.getElementById('editBookmarkId').value;
+      const title = document.getElementById('linkTitle').value.trim();
+      let url = document.getElementById('linkUrl').value.trim();
+      const user = document.getElementById('linkUser').value.trim();
+      const pass = document.getElementById('linkPass').value.trim();
+      let category = document.getElementById('linkCategory').value.trim() || 'Geral';
+      const desc = document.getElementById('linkDesc').value.trim();
+
+      if (!title) {
+        alert('Por favor, informe ao menos o Título.');
+        return;
+      }
+
+      if (url && !url.endsWith('.html') && !/^https?:\/\//i.test(url) && !url.endsWith('.onion')) {
+        url = 'https://' + url;
+      }
+
+      if (editId) {
+        const index = bookmarks.findIndex(b => b.id === editId);
+        if (index !== -1) {
+          bookmarks[index] = {
+            ...bookmarks[index],
+            title,
+            url,
+            user,
+            pass,
+            category,
+            desc
+          };
+        }
+      } else {
+        const newBookmark = {
+          id: Date.now().toString(),
+          title,
+          url,
+          user,
+          pass,
+          category,
+          desc
+        };
+        bookmarks.push(newBookmark);
+      }
+
+      if (!customCategoryOrder.includes(category)) {
+        customCategoryOrder.push(category);
+      }
+
+      render();
+      closeForm();
+    }
+
+    function deleteBookmark(id) {
+      if (confirm('Deseja realmente remover este favorito?')) {
+        bookmarks = bookmarks.filter(b => b.id !== id);
+        render();
+      }
+    }
+
+    function renameCategory(oldName) {
+      const newName = prompt(`Digite o novo nome para a categoria "${oldName}":`, oldName);
+      if (!newName || newName.trim() === '' || newName.trim() === oldName) return;
+
+      const cleanNewName = newName.trim();
+
+      bookmarks.forEach(b => {
+        if (b.category === oldName) {
+          b.category = cleanNewName;
+        }
+      });
+
+      const index = customCategoryOrder.indexOf(oldName);
+      if (index !== -1) {
+        if (customCategoryOrder.includes(cleanNewName)) {
+          customCategoryOrder.splice(index, 1);
+        } else {
+          customCategoryOrder[index] = cleanNewName;
+        }
+      }
+
+      if (currentCategoryFilter === oldName) {
+        currentCategoryFilter = cleanNewName;
+      }
+
+      render();
+    }
+
+    function setFilterCategory(cat) {
+      currentCategoryFilter = cat;
+      render();
+    }
+
+    function filterBookmarks() {
+      render();
+    }
+
+    async function copyToClipboard(text, btn) {
+      if (!text) return;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = `<span style="color: #34d399; font-size: 10px;">✓</span>`;
+        setTimeout(() => btn.innerHTML = originalContent, 1000);
+      } catch (err) {
+        console.error("Erro ao copiar:", err);
+      }
+    }
+
+    function toggleMask(id) {
+      const span = document.getElementById(id);
+      if (!span) return;
+      if (span.getAttribute('data-hidden') === 'true') {
+        span.textContent = span.getAttribute('data-real');
+        span.setAttribute('data-hidden', 'false');
+      } else {
+        span.textContent = '••••••••';
+        span.setAttribute('data-hidden', 'true');
+      }
+    }
+
+    // Drag and Drop: Categorias
+    function handlePillDragStart(e, cat) {
+      draggedCategoryName = cat;
+      e.dataTransfer.effectAllowed = 'move';
+      e.target.classList.add('dragging');
+    }
+
+    function handlePillDragEnd(e) {
+      e.target.classList.remove('dragging');
+      document.querySelectorAll('.pill').forEach(el => el.classList.remove('drag-over-pill'));
+      draggedCategoryName = null;
+    }
+
+    function handlePillDragOver(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+    }
+
+    function handlePillDrop(e, targetCat) {
+      e.preventDefault();
+      if (!draggedCategoryName || draggedCategoryName === targetCat) return;
+
+      const fromIndex = customCategoryOrder.indexOf(draggedCategoryName);
+      const toIndex = customCategoryOrder.indexOf(targetCat);
+
+      if (fromIndex !== -1 && toIndex !== -1) {
+        customCategoryOrder.splice(fromIndex, 1);
+        customCategoryOrder.splice(toIndex, 0, draggedCategoryName);
+        render();
+      }
+    }
+
+    function renderCategoryPills(categories) {
+      const container = document.getElementById('categoryPills');
+      container.innerHTML = '';
+
+      const allPill = document.createElement('button');
+      allPill.className = `pill ${currentCategoryFilter === 'ALL' ? 'active' : ''}`;
+      allPill.textContent = 'Todas';
+      allPill.onclick = () => setFilterCategory('ALL');
+      container.appendChild(allPill);
+
+      categories.forEach(cat => {
+        const pill = document.createElement('button');
+        pill.className = `pill ${currentCategoryFilter === cat ? 'active' : ''}`;
+        pill.textContent = cat;
+        pill.draggable = true;
+        pill.title = "Clique para filtrar | Arraste para mover | Duplo clique para renomear";
+
+        pill.onclick = () => setFilterCategory(cat);
+        pill.ondblclick = (e) => {
+          e.stopPropagation();
+          renameCategory(cat);
+        };
+
+        pill.addEventListener('dragstart', (e) => handlePillDragStart(e, cat));
+        pill.addEventListener('dragend', handlePillDragEnd);
+        pill.addEventListener('dragover', handlePillDragOver);
+        pill.addEventListener('drop', (e) => handlePillDrop(e, cat));
+
+        container.appendChild(pill);
+      });
+    }
+
+    // Drag and Drop: Cards
+    function handleCardDragStart(e, id) {
+      draggedBookmarkId = id;
+      e.dataTransfer.effectAllowed = 'move';
+      e.target.classList.add('dragging');
+    }
+
+    function handleCardDragEnd(e) {
+      e.target.classList.remove('dragging');
+      draggedBookmarkId = null;
+    }
+
+    function handleCardDragOver(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+    }
+
+    function handleCardDrop(e, targetId) {
+      e.preventDefault();
+      if (!draggedBookmarkId || draggedBookmarkId === targetId) return;
+
+      const fromIndex = bookmarks.findIndex(b => b.id === draggedBookmarkId);
+      const toIndex = bookmarks.findIndex(b => b.id === targetId);
+
+      if (fromIndex !== -1 && toIndex !== -1) {
+        const movedItem = bookmarks.splice(fromIndex, 1)[0];
+        const targetItem = bookmarks[toIndex > fromIndex ? toIndex - 1 : toIndex];
+        if (targetItem && targetItem.category) {
+          movedItem.category = targetItem.category;
+        }
+        bookmarks.splice(toIndex, 0, movedItem);
+        render();
+      }
+    }
+
+    function render() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const container = document.getElementById('bookmarksContainer');
+      document.getElementById('totalCount').textContent = bookmarks.length;
+
+      const foundCats = [...new Set(bookmarks.map(b => b.category || 'Geral'))];
+      
+      customCategoryOrder = customCategoryOrder.filter(c => foundCats.includes(c));
+      foundCats.forEach(c => {
+        if (!customCategoryOrder.includes(c)) customCategoryOrder.push(c);
+      });
+
+      renderCategoryPills(customCategoryOrder);
+
+      let filtered = bookmarks.filter(item => {
+        const matchQuery = 
+          item.title.toLowerCase().includes(query) ||
+          (item.url && item.url.toLowerCase().includes(query)) ||
+          (item.user && item.user.toLowerCase().includes(query)) ||
+          (item.desc && item.desc.toLowerCase().includes(query)) ||
+          (item.category && item.category.toLowerCase().includes(query));
+
+        const matchCat = currentCategoryFilter === 'ALL' || item.category === currentCategoryFilter;
+
+        return matchQuery && matchCat;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            Nenhum favorito cadastrado ou encontrado para o filtro.
+          </div>
+        `;
+        return;
+      }
+
+      const grouped = {};
+      customCategoryOrder.forEach(cat => grouped[cat] = []);
+
+      filtered.forEach(b => {
+        const cat = b.category || 'Geral';
+        if (!grouped[cat]) grouped[cat] = [];
+        grouped[cat].push(b);
+      });
+
+      container.innerHTML = '';
+
+      customCategoryOrder.forEach(cat => {
+        if (!grouped[cat] || grouped[cat].length === 0) return;
+
+        const section = document.createElement('div');
+        section.className = 'category-section';
+
+        const title = document.createElement('div');
+        title.className = 'category-title';
+        title.innerHTML = `
+          <span>📁 ${escapeHtml(cat)}</span> 
+          <span style="font-size: 10px; color: #64748b;">(${grouped[cat].length})</span>
+          <button class="btn-edit-cat" onclick="renameCategory('${escapeHtml(cat)}')" title="Renomear esta categoria">
+            <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </button>
+        `;
+        section.appendChild(title);
+
+        const grid = document.createElement('div');
+        grid.className = 'bookmarks-grid';
+
+        grouped[cat].forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'bookmark-card';
+          card.draggable = true;
+
+          card.addEventListener('dragstart', (e) => handleCardDragStart(e, item.id));
+          card.addEventListener('dragend', handleCardDragEnd);
+          card.addEventListener('dragover', handleCardDragOver);
+          card.addEventListener('drop', (e) => handleCardDrop(e, item.id));
+
+          const passId = `pass_${item.id}`;
+
+          card.innerHTML = `
+            <div>
+              <div class="bookmark-top">
+                ${item.url ? `
+                  <a href="${encodeURI(item.url)}" target="_blank" rel="noopener noreferrer" class="bookmark-title-link" onclick="event.stopPropagation();">
+                    <span>${escapeHtml(item.title)}</span>
+                    <span style="font-size: 10px; color: #38bdf8;">↗</span>
+                  </a>
+                ` : `
+                  <span class="bookmark-title-link" style="color: #ffffff;">${escapeHtml(item.title)}</span>
+                `}
+                <div class="card-actions" onclick="event.stopPropagation();">
+                  <button class="btn-icon edit" onclick="editBookmark('${item.id}')" title="Editar Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" onclick="deleteBookmark('${item.id}')" title="Excluir Favorito">
+                    <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              ${item.desc ? `<div class="bookmark-desc">${escapeHtml(item.desc)}</div>` : ''}
+
+              ${item.user ? `
+                <div class="cred-row" onclick="event.stopPropagation();">
+                  <span class="cred-label">Login:</span>
+                  <span class="cred-value" title="${escapeHtml(item.user)}">${escapeHtml(item.user)}</span>
+                  <div class="cred-actions">
+                    <button class="btn-cred-mini" onclick="copyToClipboard('${escapeJs(item.user)}', this)" title="Copiar Usuário">📋</button>
+                  </div>
+                </div>
+              ` : ''}
+
+              ${item.pass ? `
+                <div class="cred-row" onclick="event.stopPropagation();">
+                  <span class="cred-label">Senha:</span>
+                  <span class="cred-value" id="${passId}" data-real="${escapeHtml(item.pass)}" data-hidden="true">••••••••</span>
+                  <div class="cred-actions">
+                    <button class="btn-cred-mini" onclick="toggleMask('${passId}')" title="Mostrar/Ocultar Senha">👁️</button>
+                    <button class="btn-cred-mini" onclick="copyToClipboard('${escapeJs(item.pass)}', this)" title="Copiar Senha">📋</button>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+
+            <div class="bookmark-meta">
+              <span class="bookmark-cat">${escapeHtml(item.category)}</span>
+              ${item.url ? `
+                <span style="font-size: 10px; color: #475569; font-family: monospace; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  ${escapeHtml(item.url)}
+                </span>
+              ` : ''}
+            </div>
+          `;
+
+          grid.appendChild(card);
+        });
+
+        section.appendChild(grid);
+        container.appendChild(section);
+      });
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function escapeJs(text) {
+      if (!text) return '';
+      return String(text).replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"');
+    }
+
+    window.onload = initApp;
+  </script>
+
+
+
+</body></html>
+</html>
